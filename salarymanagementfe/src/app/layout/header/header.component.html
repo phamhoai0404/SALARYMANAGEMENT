@@ -1,0 +1,22 @@
+<mat-toolbar class="nav-height">
+    <mat-toolbar-row>
+        <button mat-icon-button>
+            <mat-icon (click)="openSidernav()" class="manager">menu</mat-icon>
+        </button>
+        <h1 (click)="openSidernav()" class="manager">Quản lý bảng lương</h1>
+        <span class="menu-spacer" style="width: 100px;"></span>
+        <div>
+            <a mat-button [routerLink]="['/information']" [routerLinkActive]="'active-link'">
+                <mat-icon mat-list-icon>home</mat-icon> Thông tin trang Web
+            </a>
+            <a mat-button [routerLink]="['/boardPayroll']" [routerLinkActive]="'active-link'">
+                <mat-icon>folder_shared</mat-icon>
+                Bảng Lương &nbsp; &nbsp;<span  matBadge="{{number}}" matBadgeColor="warn"></span>
+            </a>
+        </div>
+        <button (click)="buttonLogin()" mat-raised-button color="warn" class = "buttonLogin" >
+            Đăng nhập &nbsp;
+            <mat-icon>input</mat-icon>
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>

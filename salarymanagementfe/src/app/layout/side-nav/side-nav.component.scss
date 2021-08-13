@@ -1,0 +1,36 @@
+.nav-height {
+    min-height: 50px !important;
+    height: 50px !important;
+    background-color: #31B404;
+  }
+  .manager:hover{
+    color: white !important;
+  }
+  .content-move-right {
+    margin-left: 250px !important;
+    transition: ease 0.2s;
+  }
+  
+  .content-move-left {
+    margin-left: 10px !important;
+    transition: ease 0.1s;
+  }
+  
+  .active-link {
+    background:#82FA58;
+    color: white;
+  }
+  
+  .mat-button:hover {
+    background: #82FA58;
+    color: white;
+  }
+  .buttonLogin{
+    margin-left: auto;
+    margin-right: 10px !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+  
+
+  
