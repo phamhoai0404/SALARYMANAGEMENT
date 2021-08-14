@@ -35,6 +35,5 @@ public class StaffDTO {
 
     private float basicSalary;
 
-    Set<Payroll> payrolls ;
 
 }

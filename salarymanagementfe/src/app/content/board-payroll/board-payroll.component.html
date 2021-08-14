@@ -1,2 +1,24 @@
-<p style="color: red;">board-payroll works!</p>
+<div *ngFor="let item of listBoardPayroll">
+    <div>
+        <h1>{{item.year }} / {{ item.month}}</h1>
+        <table border="1">
+            <tr>
+                <th>STT</th>
+                <th>Mã nhân viên</th>
+                <th>Tên nhân viên</th>
+                <th>Giới tính</th>
+                <th>Ngày sinh</th>
+                <th>Chức vụ</th>
+                <th>Lương cơ bản</th>
+                <th>Ngày công</th>
+                <th>Tiền thưởng</th>
+                <th>Tổng lương</th>
+                <th>Các thao tác</th>
+                <th></th>
+            </tr>
 
+            <div id="areaRecordPayroll" *ngIf="checkDurationAll(item)"></div>
+            
+        </table>
+    </div>
+</div>

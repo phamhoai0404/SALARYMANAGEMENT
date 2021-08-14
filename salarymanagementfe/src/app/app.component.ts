@@ -1,12 +1,16 @@
+import { ServiceStorageService } from './share/service_storage/service-storage.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'salarymanagementfe';
-  
+    public hoa;
+    title = 'salarymanagementfe';
+    constructor() { }
+
+
 }

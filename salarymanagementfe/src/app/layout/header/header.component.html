@@ -9,9 +9,10 @@
             <a mat-button [routerLink]="['/information']" [routerLinkActive]="'active-link'">
                 <mat-icon mat-list-icon>home</mat-icon> Thông tin trang Web
             </a>
+            &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
             <a mat-button [routerLink]="['/boardPayroll']" [routerLinkActive]="'active-link'">
                 <mat-icon>folder_shared</mat-icon>
-                Bảng Lương &nbsp; &nbsp;<span  matBadge="{{number}}" matBadgeColor="warn"></span>
+                Bảng Lương &nbsp; &nbsp;<span matBadge="{{number}}" matBadgeColor="warn"></span>
             </a>
         </div>
         <button (click)="buttonLogin()" mat-raised-button color="warn" class = "buttonLogin" >
