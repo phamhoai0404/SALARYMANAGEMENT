@@ -1,24 +1,39 @@
-<div *ngFor="let item of listBoardPayroll">
-    <div>
-        <h1>{{item.year }} / {{ item.month}}</h1>
-        <table border="1">
-            <tr>
-                <th>STT</th>
-                <th>Mã nhân viên</th>
-                <th>Tên nhân viên</th>
-                <th>Giới tính</th>
-                <th>Ngày sinh</th>
-                <th>Chức vụ</th>
-                <th>Lương cơ bản</th>
-                <th>Ngày công</th>
-                <th>Tiền thưởng</th>
-                <th>Tổng lương</th>
-                <th>Các thao tác</th>
-                <th></th>
-            </tr>
+<span *ngIf="check()">
+    <div *ngFor="let item of dataBoardPayroll ;  index as i ">
+        <div>
+            <h1>{{item.year }} / {{ item.month}}</h1>
+            <table border="1">
+                <tr>
+                    <th>STT</th>
+                    <th>Mã nhân viên</th>
+                    <th>Tên nhân viên</th>
+                    <th>Giới tính</th>
+                    <th>Ngày sinh</th>
+                    <th>Chức vụ</th>
+                    <th>Lương cơ bản</th>
+                    <th>Ngày công</th>
+                    <th>Tiền thưởng</th>
+                    <th>Tổng lương</th>
+                    <th>Các thao tác</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let record of listAllBoardPayroll[i]">
+                    <td></td>
+                    <td>{{ record.staff.staffId }}</td>
+                    <td>{{ record.staff.fullName }}</td>
+                    <td>{{ record.staff.gender }}</td>
+                    <td>{{ record.staff.birthday }}</td>
+                    <td>{{ record.staff.position }}</td>
+                    <td>{{ record.staff.basicSalary }}</td>
+                    <td>{{ record.workDay }}</td>
+                    <td>{{ record.bonus }}</td>
+                    <td>{{ record.salary }}</td>
+                    <td>Xóa</td>
+                    <td>Sửa</td>
+                </tr>
+                <!-- <div id="areaRecordPayroll" *ngIf="checkDurationAll(item)"></div> -->
 
-            <div id="areaRecordPayroll" *ngIf="checkDurationAll(item)"></div>
-            
-        </table>
+            </table>
+        </div>
     </div>
-</div>
+</span>

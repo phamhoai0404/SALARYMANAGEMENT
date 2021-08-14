@@ -5,7 +5,7 @@ import { ServiceStorageService } from './../../share/service_storage/service-sto
 import { ServiceHttpService } from './../../share/service_http/service-http.service';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Payroll } from 'src/app/share/model/payroll.model';
-import * as $ from 'jquery' 
+ 
 
 
 @Component({
@@ -20,12 +20,14 @@ export class BoardPayrollComponent implements OnInit, AfterViewInit {
         private servicehttp: ServiceHttpService
     ) { }
 
-    public listBoardPayroll: Duration[];
+    public dataBoardPayroll: Duration[];
     public listAllPayroll: Payroll[];
+    public listAllBoardPayroll: Array<Payroll[]>;
 
     ngOnInit(): void {
         this.subscribeNumberBoardPayroll();
         this.subscribeDataAllPayroll();
+        this.subscribeListAllBoardPayroll();
         this.loadDataPayroll();
     }
     ngAfterViewInit() {
@@ -34,7 +36,7 @@ export class BoardPayrollComponent implements OnInit, AfterViewInit {
     subscribeNumberBoardPayroll() {
         this.serviceStorage.$dataAllBoardPayroll.subscribe(
             data => {
-                this.listBoardPayroll = data;
+                this.dataBoardPayroll = data;
             }
         )
     }
@@ -45,12 +47,25 @@ export class BoardPayrollComponent implements OnInit, AfterViewInit {
             }
         )
     }
+    
+    subscribeListAllBoardPayroll(){
+        this.serviceStorage.$listAllBoardPayroll.subscribe(
+            listBoardPayroll =>{
+                this.listAllBoardPayroll = listBoardPayroll;
+            }
+        )
+    }
+
     loadDataPayroll() {
         this.servicehttp.getAllPayroll().subscribe(
             data => {
                 this.serviceStorage.setDataAllPayroll(this.addSalary(data));
                 console.log("this.listAllPayroll", this.listAllPayroll);
-
+                this.serviceStorage.setlistAllBoardPayroll(
+                    this.addListAllBoardPayroll(this.dataBoardPayroll,this.listAllPayroll)
+                );
+                console.error(" do nha", this.listAllBoardPayroll);
+                    
             }
         )
     }
@@ -68,52 +83,34 @@ export class BoardPayrollComponent implements OnInit, AfterViewInit {
         })
         return dataAll;
     };
+    addListAllBoardPayroll(dataBoard,listAllPayroll){
+        console.log("dataBoard", dataBoard);
+        console.log("listAllPayroll", listAllPayroll);
+
+        let listAllBoardPayroll = new Array<Payroll[]>();
+        for( let i = 0; i < dataBoard.length; i++){
+            let temp = [];//chú ý chỗ này nha
+            for( let j = 0 ; j < listAllPayroll.length ; j++){
+                if( this.checkDuration( listAllPayroll[j].duration, dataBoard[i])){
+                    temp.push(listAllPayroll[j] as Payroll);
+                }
+            }
+            listAllBoardPayroll.push(temp);
+        }
+        return listAllBoardPayroll;
+    }
+
+
     checkDuration(objectOne, objectTwo){
         if(objectOne.id == objectTwo.id)
             return true;
         return false;
-        
-    }
-    checkDurationAll(item){
-        let listOneBoard = this.checkPayroll(item);
-        if(listOneBoard.length >0){
-            this.addRecordPayroll(listOneBoard);
-        }
-    }
-    checkPayroll(item){
-        let listOneBoardPayroll = [];
-        this.listAllPayroll.forEach(
-            payroll =>{
-                if(this.checkDuration(item, payroll.duration)){
-                    listOneBoardPayroll.push(payroll);
-                }
-            });
-        return listOneBoardPayroll;
-    }
-
-
-    addRecordPayroll(listPayroll){
-        const area = $("#areaRecordPayroll");
-        let temp ="";
-        temp +="xinh gái quá";
-            temp +="<tr *ngFor=\" let record of 'listPayroll' \" >";
-            temp +="<td></td>";
-            temp +="<td>{{ record.staff.staffId }}</td>";
-            temp +="<td>{{ record.staff.fullName }}</td>";
-            temp +="<td>{{ record.staff.gender }}</td>";
-            temp +="<td>{{ record.staff.birthday }}</td>";
-            temp +="<td>{{ record.staff.position }}</td>";
-            temp +="<td>{{ record.staff.basicSalary }}</td>";
-            temp +="<td>{{ record.workDay }}</td>";
-            temp +="<td>{{ record.bonus }}</td>";
-            temp +="<td>{{ record.salary }}</td>";
-            temp +="<td>Xóa</td>";
-            temp +="<td>Sửa</td>";
-            temp +="</tr>";
-
-            area.before(temp);
-        console.log(temp);
-        
-    }
+    } 
+    check(){
+        if( this.dataBoardPayroll == null || this.dataBoardPayroll.length ==0)
+            return false;
+        return true;
+    } 
+    
 }
 

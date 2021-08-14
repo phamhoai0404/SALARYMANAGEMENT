@@ -13,6 +13,7 @@ export class ServiceStorageService {
     public $dataAllPayroll = new BehaviorSubject<Payroll[]>(null);
     public $numberBoardPayroll = new BehaviorSubject<number>(0);
     public $dataAllBoardPayroll = new BehaviorSubject<Duration[]>(null);
+    public $listAllBoardPayroll = new BehaviorSubject<Array<Payroll[]>>(null);
 
     public setDataAllPayroll( data){
         this.$dataAllPayroll.next(data);
@@ -23,5 +24,9 @@ export class ServiceStorageService {
     public setDataAllBoardPayroll( data){
         this.$dataAllBoardPayroll.next(data);
     }
+    public setlistAllBoardPayroll( data){
+        this.$listAllBoardPayroll.next(data);
+    }
+
  
 }
