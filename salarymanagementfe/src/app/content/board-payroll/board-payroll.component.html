@@ -1,39 +1,59 @@
 <span *ngIf="check()">
     <div *ngFor="let item of dataBoardPayroll ;  index as i ">
-        <div>
-            <h1>{{item.year }} / {{ item.month}}</h1>
-            <table border="1">
-                <tr>
-                    <th>STT</th>
-                    <th>Mã nhân viên</th>
-                    <th>Tên nhân viên</th>
-                    <th>Giới tính</th>
-                    <th>Ngày sinh</th>
-                    <th>Chức vụ</th>
-                    <th>Lương cơ bản</th>
-                    <th>Ngày công</th>
-                    <th>Tiền thưởng</th>
-                    <th>Tổng lương</th>
-                    <th>Các thao tác</th>
-                    <th></th>
-                </tr>
-                <tr *ngFor="let record of listAllBoardPayroll[i]">
-                    <td></td>
-                    <td>{{ record.staff.staffId }}</td>
-                    <td>{{ record.staff.fullName }}</td>
-                    <td>{{ record.staff.gender }}</td>
-                    <td>{{ record.staff.birthday }}</td>
-                    <td>{{ record.staff.position }}</td>
-                    <td>{{ record.staff.basicSalary }}</td>
-                    <td>{{ record.workDay }}</td>
-                    <td>{{ record.bonus }}</td>
-                    <td>{{ record.salary }}</td>
-                    <td>Xóa</td>
-                    <td>Sửa</td>
-                </tr>
-                <!-- <div id="areaRecordPayroll" *ngIf="checkDurationAll(item)"></div> -->
+        <div [ngClass]="{spaceBoard: i> 0}">
+            <h1>Bảng lương {{item.month }} / {{ item.year}}</h1>
+            <span *ngIf="checkTwo()">
 
-            </table>
+                <table border="1" class="customers">
+                    <tr class="addRecord">
+                        <th colspan="12">
+                            <button>
+                                <mat-icon>note_add</mat-icon>
+                                <label>Thêm nhân viên</label>
+                            </button>
+                            
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã nhân viên</th>
+                        <th>Tên nhân viên</th>
+                        <th>Giới tính</th>
+                        <th>Ngày sinh</th>
+                        <th>Chức vụ</th>
+                        <th>Lương cơ bản</th>
+                        <th>Ngày công</th>
+                        <th>Tiền thưởng</th>
+                        <th>Tổng lương</th>
+                        <th colspan="2">Các thao tác</th>
+                    </tr>
+                    <tr *ngFor="let record of listAllBoardPayroll[i]; index as j">
+                        <td class="stt">{{j + 1}}</td>
+                        <td class="staffId">{{ record.staff.staffId }}</td>
+                        <td>{{ record.staff.fullName }}</td>
+                        <td>{{ record.staff.gender }}</td>
+                        <td class="birthday">{{ record.staff.birthday |date: 'dd/MM/yyyy'}}</td>
+                        <td>{{ record.staff.position }}</td>
+                        <td class="salary">{{ record.staff.basicSalary | number: "0.0" }}</td>
+                        <td class="staffWorDay">{{ record.workDay }}</td>
+                        <td class="salary">{{ record.bonus | number: "0.0" }}</td>
+                        <td class="salary">{{ record.salary | number: "0.0" }}</td>
+                        <td class="editRecord">
+                            <mat-icon>edit</mat-icon>
+                        </td>
+                        <td class="deleteRecord">
+                            <mat-icon>delete</mat-icon>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="9">Tổng lương</td>
+                        <td colspan="3">
+                            {{ tongluong(listAllBoardPayroll[i]) | number: "0.0" }}
+                        </td>
+                    </tr>
+                </table>
+            </span>
+
         </div>
     </div>
 </span>

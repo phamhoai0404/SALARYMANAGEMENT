@@ -1,36 +1,88 @@
 .nav-height {
     min-height: 50px !important;
     height: 50px !important;
-    background-color: #31B404;
-  }
-  .manager:hover{
+    background-color: #2acf2a;
+    padding-top: 20px;
+    padding-bottom: 70px;
+}
+.manager:hover {
     color: white !important;
-  }
-  .content-move-right {
+}
+.content-move-right {
     margin-left: 200px !important;
     transition: ease 0.2s;
-  }
-  
-  .content-move-left {
+}
+
+.content-move-left {
     margin-left: 10px !important;
     transition: ease 0.1s;
-  }
-  
-  .active-link {
-    background:#82FA58;
-    color: white;
-  }
-  
-  .mat-button:hover {
-    background: #82FA58;
-    color: white;
-  }
-  .buttonLogin{
-    margin-left: auto;
-    margin-right: 10px !important;
-    padding-left: 40px !important;
-    padding-right: 40px !important;
-  }
-  
+}
 
-  
+.active-link {
+    background: #82fa58;
+    color: white;
+}
+
+.mat-button:hover {
+    background: #82fa58;
+    color: white;
+}
+h1 {
+    cursor: pointer;
+}
+
+.function {
+    margin-right: 10px;
+    margin-left: auto;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+}
+.addBoard{
+    background: none;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    border-radius: 9px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: none;
+}
+.exportExcel{
+    
+    background: none;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    border-radius: 9px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: none;
+}
+.logout{
+   
+    background: none;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    border-radius: 9px;
+    border: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.addBoard:hover, .logout:hover, .exportExcel:hover{
+    background-color: #82fa58;
+    color: white;
+
+}
+.iconns{
+    font-size: 20px !important;
+}

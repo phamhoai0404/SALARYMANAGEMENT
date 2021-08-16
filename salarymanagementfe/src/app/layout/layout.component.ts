@@ -17,6 +17,6 @@ export class LayoutComponent implements OnInit {
         this.defaultRouterLoading();
     }
     defaultRouterLoading(){
-        this.router.navigateByUrl('information');
+        this.router.navigateByUrl('boardPayroll');
     }
 }

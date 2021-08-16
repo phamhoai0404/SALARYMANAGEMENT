@@ -15,9 +15,22 @@
                 Bảng Lương &nbsp; &nbsp;<span matBadge="{{number}}" matBadgeColor="warn"></span>
             </a>
         </div>
-        <button (click)="buttonLogin()" mat-raised-button color="warn" class = "buttonLogin" >
-            Đăng nhập &nbsp;
-            <mat-icon>input</mat-icon>
-        </button>
+        <div class="function">
+            <button title="Thêm bảng lương" class="addBoard">
+                <mat-icon class="iconns" >add_to_queue</mat-icon>
+                <label>Bảng lương</label>
+            </button>
+
+            <button  class = "exportExcel" title="Xuất dữ liệu Excel">
+                <mat-icon class="iconns">cloud_download</mat-icon>
+                <label> Excel</label>
+            </button>
+
+            <button title="Đăng xuất" class ="logout">
+                <mat-icon class="iconns">input</mat-icon>
+                <label> Đăng xuất</label>
+            </button>
+        </div>
+
     </mat-toolbar-row>
 </mat-toolbar>

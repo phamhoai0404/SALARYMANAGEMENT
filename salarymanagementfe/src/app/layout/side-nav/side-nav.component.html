@@ -1,13 +1,13 @@
-<mat-sidenav-container>
-    <mat-sidenav #sidenav (closed)="closeLeftSide()" >
+<mat-sidenav-container class ="sidenaves">
+    <mat-sidenav #sidenav (closed)="closeLeftSide()" class="sidenaveSmall" >
         <mat-nav-list>
-            <a mat-list-item [routerLink]="['/information']">
+            <a mat-list-item [routerLink]="['/information']"  [routerLinkActive]="'active-link'">
                 <mat-icon mat-list-icon>home</mat-icon>&nbsp;&nbsp;Thông tin trang Web
             </a>
-            <a mat-list-item [routerLink]="['/boardPayroll']">
+            <a mat-list-item [routerLink]="['/boardPayroll']"  [routerLinkActive]="'active-link'">
                 <mat-icon>folder_shared</mat-icon>&nbsp;&nbsp;&nbsp;Bảng Lương
             </a>
-            <a mat-list-item (click)="sidenav.toggle()" mat-list-item>
+            <a mat-list-item (click)="sidenav.toggle()" >
                 <mat-icon>close</mat-icon>&nbsp;&nbsp;&nbsp;Đóng
             </a>
         </mat-nav-list>

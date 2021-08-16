@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit {
         )
     }
   
-    buttonLogin(){}
+    buttonLogout(){}
 
 
     //Liên quan đến các hoạt động của trang web 

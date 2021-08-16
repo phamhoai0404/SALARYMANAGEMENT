@@ -1,0 +1,85 @@
+.customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 90% !important;
+    margin: 0 auto;
+}
+
+.customers td,
+.customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+h1 {
+    width: 90%;
+    text-align: center;
+}
+
+//cái này
+.customers tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.customers tr:hover {
+    background-color: #ddd;
+}
+
+.customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4caf50;
+    color: white;
+}
+.staffId {
+    text-align: center;
+    width: 35px;
+}
+.staffWorDay {
+    text-align: center;
+    width: 30px;
+}
+.stt {
+    text-align: center;
+    width: 30px;
+}
+.salary {
+    text-align: center;
+}
+.spaceBoard{
+   margin-top: 70px !important;
+}
+.birthday{
+    text-align: center;
+}
+.deleteRecord{
+    text-align: center;
+    color: red !important;
+    cursor: pointer;
+}
+.editRecord{
+    text-align: center;
+    color: blue !important;
+    cursor: pointer;
+}
+.addRecord th{
+    background: none !important;
+    
+}
+.addRecord th:hover{
+    background-color:#FFFFFF !important; 
+}
+.addRecord th{
+   text-align: left !important;
+}
+.addRecord th button{
+    padding: 10px !important;
+    background-color:palevioletred;
+    border-radius: 5px;
+    color:white;
+}
+.addRecord th button label{
+    font-size: 16px !important;
+    
+}
+

@@ -20,7 +20,7 @@ export class BoardPayrollComponent implements OnInit, AfterViewInit {
         private servicehttp: ServiceHttpService
     ) { }
 
-    public dataBoardPayroll: Duration[];
+    public dataBoardPayroll = Duration[0];
     public listAllPayroll: Payroll[];
     public listAllBoardPayroll: Array<Payroll[]>;
 
@@ -71,7 +71,7 @@ export class BoardPayrollComponent implements OnInit, AfterViewInit {
     }
     addSalary(data) {
         let dataAll = data.map(record => {
-            let salary = record.staff.basicSalary / 26 * record.bonus;
+            let salary = (record.staff.basicSalary / 26) * record.workDay + record.bonus;
             return {
                 id: record.id,
                 staff: record.staff,
@@ -110,7 +110,17 @@ export class BoardPayrollComponent implements OnInit, AfterViewInit {
         if( this.dataBoardPayroll == null || this.dataBoardPayroll.length ==0)
             return false;
         return true;
-    } 
+    }
+    checkTwo(){
+        if(this.listAllBoardPayroll == null || this.listAllBoardPayroll.length ==0)
+            return false;
+        return true;
+    }
+    tongluong(oneBoardPayroll){
+        if(oneBoardPayroll == null || oneBoardPayroll.length == 0)
+            return 0;
+        return oneBoardPayroll.reduce((tong, doituong) => tong + doituong.salary, 0);
+    }
     
 }
 
