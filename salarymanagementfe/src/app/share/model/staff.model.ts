@@ -1,21 +1,21 @@
-export class Staff{
+export class Staff {
     constructor(
-        id?: number,
+        public id?: number,
 
-        staffId?:string,
-       
-        fullName?:string,
-       
-        position?:string,
-       
-        gender?:string,
-       
-        birthday?:Date,
-       
-        address?:string,
-       
-        staffDescribe?:string,
-       
-        basicSalary?:number
-    ){}
+        public staffId?: string,
+
+        public fullName?: string,
+
+        public position?: string,
+
+        public gender?: string,
+
+        public birthday?: Date,
+
+        public address?: string,
+
+        public staffDescribe?: string,
+
+        public basicSalary?: number
+    ) { }
 }

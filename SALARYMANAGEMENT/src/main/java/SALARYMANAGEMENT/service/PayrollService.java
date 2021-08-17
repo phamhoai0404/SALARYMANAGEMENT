@@ -2,6 +2,7 @@ package SALARYMANAGEMENT.service;
 
 import SALARYMANAGEMENT.domain.Payroll;
 import SALARYMANAGEMENT.dto.PayrollDTO;
+import SALARYMANAGEMENT.dto.StaffDTO;
 
 import java.util.List;
 
@@ -16,6 +17,5 @@ public interface PayrollService {
 
     PayrollDTO deletePayroll(Long id) throws Exception;
 
-    List<PayrollDTO> searchPayrollByDuration( Long idDuration) ;
-
+    public List<StaffDTO> searchStaffNotExistsDuration(Long idDuration);
 }

@@ -5,14 +5,14 @@ export class Payroll {
     constructor(
         id?: number,
 
-        staff?: Staff,
+        public staff?: Staff,
 
         public duration?: Duration,
 
-        workDay?: number,
+        public workDay?: number,
 
-        bonus?: number,
+        public bonus?: number,
 
-        salary?: number
+        public salary?: number
     ) { }
 }

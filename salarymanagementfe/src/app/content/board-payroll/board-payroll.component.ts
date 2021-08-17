@@ -1,10 +1,13 @@
-import { Staff } from './../../share/model/staff.model';
+import { AddRecordComponent } from './add-record/add-record.component';
+import { UtilService } from './../../share/util/util.service';
 import { Duration } from './../../share/model/duration.model';
-import { LayoutComponent } from './../../layout/layout.component';
 import { ServiceStorageService } from './../../share/service_storage/service-storage.service';
 import { ServiceHttpService } from './../../share/service_http/service-http.service';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Payroll } from 'src/app/share/model/payroll.model';
+import { MatDialog } from '@angular/material/dialog';
+import { EditRecordComponent } from './edit-record/edit-record.component';
+import { DeleteRecordComponent } from './delete-record/delete-record.component';
  
 
 
@@ -17,7 +20,8 @@ export class BoardPayrollComponent implements OnInit, AfterViewInit {
 
     constructor(
         private serviceStorage: ServiceStorageService,
-        private servicehttp: ServiceHttpService
+        private servicehttp: ServiceHttpService,
+        private dialog: MatDialog
     ) { }
 
     public dataBoardPayroll = Duration[0];
@@ -59,53 +63,18 @@ export class BoardPayrollComponent implements OnInit, AfterViewInit {
     loadDataPayroll() {
         this.servicehttp.getAllPayroll().subscribe(
             data => {
-                this.serviceStorage.setDataAllPayroll(this.addSalary(data));
+                this.serviceStorage.setDataAllPayroll(UtilService.addSalary(data));
                 console.log("this.listAllPayroll", this.listAllPayroll);
                 this.serviceStorage.setlistAllBoardPayroll(
-                    this.addListAllBoardPayroll(this.dataBoardPayroll,this.listAllPayroll)
+                    UtilService.addListAllBoardPayroll(this.dataBoardPayroll,this.listAllPayroll)
                 );
                 console.error(" do nha", this.listAllBoardPayroll);
                     
             }
         )
     }
-    addSalary(data) {
-        let dataAll = data.map(record => {
-            let salary = (record.staff.basicSalary / 26) * record.workDay + record.bonus;
-            return {
-                id: record.id,
-                staff: record.staff,
-                duration: record.duration,
-                workDay: record.workDay,
-                bonus: record.bonus,
-                salary: salary
-            }
-        })
-        return dataAll;
-    };
-    addListAllBoardPayroll(dataBoard,listAllPayroll){
-        console.log("dataBoard", dataBoard);
-        console.log("listAllPayroll", listAllPayroll);
-
-        let listAllBoardPayroll = new Array<Payroll[]>();
-        for( let i = 0; i < dataBoard.length; i++){
-            let temp = [];//chú ý chỗ này nha
-            for( let j = 0 ; j < listAllPayroll.length ; j++){
-                if( this.checkDuration( listAllPayroll[j].duration, dataBoard[i])){
-                    temp.push(listAllPayroll[j] as Payroll);
-                }
-            }
-            listAllBoardPayroll.push(temp);
-        }
-        return listAllBoardPayroll;
-    }
-
-
-    checkDuration(objectOne, objectTwo){
-        if(objectOne.id == objectTwo.id)
-            return true;
-        return false;
-    } 
+    
+    
     check(){
         if( this.dataBoardPayroll == null || this.dataBoardPayroll.length ==0)
             return false;
@@ -122,5 +91,24 @@ export class BoardPayrollComponent implements OnInit, AfterViewInit {
         return oneBoardPayroll.reduce((tong, doituong) => tong + doituong.salary, 0);
     }
     
+
+    //Các hoạt động thêm sửa xóa
+    buttonEdit(record){
+        // console.log("Đã kích vào Edit");
+        this.openDialog(EditRecordComponent, record);
+
+    }
+    buttonDelete(record){
+        this.openDialog(DeleteRecordComponent, record);
+    }
+    buttonAdd(item){
+        console.log("kích vào add", item);
+        this.serviceStorage.durationPoint = item;
+        this.dialog.open(AddRecordComponent);
+    }
+    openDialog(component, data){
+        this.dialog.open(component);
+        this.serviceStorage.record = data;
+    }
 }
 

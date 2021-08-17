@@ -35,5 +35,9 @@ public class StaffDTO {
 
     private float basicSalary;
 
+    public StaffDTO( Long id ){
+        this.id = id;
+    }
+
 
 }

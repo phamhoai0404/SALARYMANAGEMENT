@@ -1,0 +1,18 @@
+
+<h1 align="center">Xóa lương nhân viên</h1>
+
+<mat-dialog-content class="mat-typography">
+    <div class="staffContent">
+        <label>Mã nhân viên: &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;{{staff.staffId}} </label>
+    </div>
+    <div class="staffContent">
+        <label>Tên nhân viên: &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;{{staff.fullName}} </label>
+    </div>
+
+    <p style="font-size: large; text-align: center;" class = "confirm">Bạn có chắc chắn muốn xóa ????</p>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button class="cancelDelete" mat-dialog-close>Hủy</button>
+    <button mat-raised-button color="warn" (click) ="buttonDeleteRecord()"  cdkFocusInitial>Xóa</button> <!-- mình thấy cái này chưa cần thiết [mat-dialog-close]="xinhgaiqua()" -->
+   
+</mat-dialog-actions>

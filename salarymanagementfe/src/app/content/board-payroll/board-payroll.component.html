@@ -7,7 +7,7 @@
                 <table border="1" class="customers">
                     <tr class="addRecord">
                         <th colspan="12">
-                            <button>
+                            <button (click)="buttonAdd(item)" title="Thêm nhân viên">
                                 <mat-icon>note_add</mat-icon>
                                 <label>Thêm nhân viên</label>
                             </button>
@@ -39,10 +39,10 @@
                         <td class="salary">{{ record.bonus | number: "0.0" }}</td>
                         <td class="salary">{{ record.salary | number: "0.0" }}</td>
                         <td class="editRecord">
-                            <mat-icon>edit</mat-icon>
+                            <mat-icon (click)="buttonEdit(record)" title="Chỉnh sửa bản ghi">edit</mat-icon>
                         </td>
                         <td class="deleteRecord">
-                            <mat-icon>delete</mat-icon>
+                            <mat-icon (click)= "buttonDelete(record)" title="Xóa bản ghi">delete</mat-icon>
                         </td>
                     </tr>
                     <tr>

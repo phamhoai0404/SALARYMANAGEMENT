@@ -1,5 +1,9 @@
 package SALARYMANAGEMENT.service;
 
-public interface StaffService {
+import SALARYMANAGEMENT.dto.StaffDTO;
 
+import java.util.List;
+
+public interface StaffService {
+    List<StaffDTO> getAllStaff();
 }

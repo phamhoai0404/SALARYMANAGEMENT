@@ -1,0 +1,25 @@
+<h1 align="center">Thêm nhân Nhân viên </h1>
+<h2 align="center">Tháng {{duration.month}} / {{duration.year}}</h2>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="recordGroup">
+      
+
+        <div class="content">
+            <mat-form-field  class ="item">
+                <mat-label>Ngày công: </mat-label>
+                <input matInput type="text" formControlName="workDay" >
+            </mat-form-field>
+            <mat-form-field class = "item">
+                <mat-label>Tiền thưởng: </mat-label>
+                <input matInput type="text" formControlName="bonus" >
+            </mat-form-field>
+        </div>
+        
+        <br>
+
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="warn" mat-dialog-close>Hủy</button>
+    <button mat-raised-button class="buttonAdd" (click) ="buttonAdd()"  cdkFocusInitial> Thêm </button>
+</mat-dialog-actions>

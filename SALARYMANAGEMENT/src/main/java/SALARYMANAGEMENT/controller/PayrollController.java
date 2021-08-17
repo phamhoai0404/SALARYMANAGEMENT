@@ -41,6 +41,7 @@ public class PayrollController {
     @PutMapping ("/edit/{id}")
     public ResponseEntity<?> editPayroll(@PathVariable Long id, @RequestBody @Valid PayrollDTO dto) {
         try {
+            System.out.println("đã vào đây");
             return ResponseEntity.ok(payrollService.editPayroll(id,dto));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -51,6 +52,15 @@ public class PayrollController {
         try {
             return ResponseEntity.ok(payrollService.deletePayroll(id));
         } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/find/{idDuration}")
+    public ResponseEntity<?> findStaffNotDuration(@PathVariable Long idDuration){
+        try{
+            return ResponseEntity.ok(payrollService.searchStaffNotExistsDuration(idDuration));
+        }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }

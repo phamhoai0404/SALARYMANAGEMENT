@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -23,6 +24,10 @@ import { SideNavComponent } from './layout/side-nav/side-nav.component';
 import { InformationComponent } from './content/information/information.component';
 import { BoardPayrollComponent } from './content/board-payroll/board-payroll.component';
 import { NotFoundComponentComponent } from './content/not-found-component/not-found-component.component';
+import { EditRecordComponent } from './content/board-payroll/edit-record/edit-record.component';
+import { DeleteRecordComponent } from './content/board-payroll/delete-record/delete-record.component';
+import { AddRecordComponent } from './content/board-payroll/add-record/add-record.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +37,12 @@ import { NotFoundComponentComponent } from './content/not-found-component/not-fo
     SideNavComponent,
     InformationComponent,
     BoardPayrollComponent,
-    NotFoundComponentComponent
+    NotFoundComponentComponent,
+
+    //Không hiểu tại sao nó lại không import tự động cái này cho mình cơ
+    EditRecordComponent,
+    DeleteRecordComponent,
+    AddRecordComponent
   ],
   imports: [
     BrowserModule,
@@ -49,12 +59,12 @@ import { NotFoundComponentComponent } from './content/not-found-component/not-fo
     MatBadgeModule,
     MatButtonModule,
     MatInputModule,
-    MatDialogModule,
+    
 
     //inport để sử dụng input á
     FormsModule,
     ReactiveFormsModule,
-
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

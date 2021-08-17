@@ -1,0 +1,14 @@
+.buttonAdd{
+    background-color: green !important;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.content .item{
+    margin-left: 30px !important;
+    margin-right: 30px !important;
+    width: 40% !important;
+}

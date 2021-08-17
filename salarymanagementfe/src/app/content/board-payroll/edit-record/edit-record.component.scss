@@ -1,0 +1,26 @@
+.mat-typography {
+    width: 500px !important;
+}
+mat-form-field {
+    width: 90% !important;
+}
+.buttonEditTeam {
+    background: green !important;
+    color: white !important;
+}
+// .staffContent label{
+//     font-size: 16px !important;
+// }
+.staffContent {
+    margin-left: 30px !important;
+    margin-bottom: 15px !important;
+}
+.changeContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.changeContent .item{
+    margin-left: 30px !important;
+    width: 40% !important;
+}

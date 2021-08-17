@@ -1,7 +1,7 @@
 export class Duration{
     constructor(
-        id?: number,
-        month?: number,
-        year?: number
+        public id?: number,
+        public month?: number,
+        public year?: number
     ){}
 }

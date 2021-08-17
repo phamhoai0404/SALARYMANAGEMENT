@@ -31,7 +31,19 @@ export class ServiceHttpService {
             .get<any>(this.URL_DURATION + '/find', this.httpOptions)
             .pipe(catchError(this.handleError));
     }
-
+    editOneRecordPayroll(data){
+        console.log("vào edit one http ", data);
+        const hoa = this.URL_PAYROLL + '/edit/' +  data.id;
+        console.log("Đường dẫn" , hoa);
+        return this.http
+            .put<any>(this.URL_PAYROLL + '/edit/' +  data.id, data, this.httpOptions )
+            .pipe(catchError(this.handleError));
+    }
+    deleteOneRecordPayroll(data){
+        return this.http
+            .delete<any>(this.URL_PAYROLL +'/delete/' + data.id , this.httpOptions)
+            .pipe(catchError(this.handleError));
+    }
 
 
     private handleError(error: HttpErrorResponse) {
