@@ -1,3 +1,4 @@
+import { ExportExcel } from "../model/export-excel.model";
 import { Payroll } from "../model/payroll.model";
 
 export class UtilService {
@@ -54,5 +55,35 @@ export class UtilService {
         return months as number[];//viết kiểu như này cho hiện rõ thôi
         //có thể viết mỗi như này cũng được
         // return months;
+    }
+    public static getDataExcel(data: Payroll[]){
+        let dataExcel: ExportExcel[];
+        let i = 0;
+        dataExcel = data.map( record =>{
+            let salarys = (record.staff.basicSalary / 26) * record.workDay + record.bonus;
+            i +=1;
+            return {
+                stt: i,
+                
+                staffId: record.staff.staffId,
+
+                fullName: record.staff.fullName,
+               
+                position: record.staff.position,
+               
+                gender: record.staff.gender,
+               
+                birthday: record.staff.birthday,
+               
+                basicSalary: record.staff.basicSalary,
+               
+                workDay: record.workDay,
+               
+                bonus: record.bonus,
+               
+                salary: salarys
+            }
+        })
+        return dataExcel;
     }
 }

@@ -32,7 +32,8 @@ import { AddRecordComponent } from './content/board-payroll/add-record/add-recor
 
 //Dùng cho Select Option ấy 
 import { MatSelectModule } from '@angular/material/select';
-import { AddDurationComponent } from './content/board-payroll/add-duration/add-duration.component'
+import { AddDurationComponent } from './content/board-payroll/add-duration/add-duration.component';
+import { ExportExcelComponent } from './content/board-payroll/export-excel/export-excel.component'
 
 
 //
@@ -51,7 +52,8 @@ import { AddDurationComponent } from './content/board-payroll/add-duration/add-d
     EditRecordComponent,
     DeleteRecordComponent,
     AddRecordComponent,
-    AddDurationComponent
+    AddDurationComponent,
+    ExportExcelComponent
   ],
   imports: [
     BrowserModule,

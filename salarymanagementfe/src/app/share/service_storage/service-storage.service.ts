@@ -8,16 +8,17 @@ import { Payroll } from '../model/payroll.model';
     providedIn: 'root'
 })
 export class ServiceStorageService {
-    constructor(private servicehttp: ServiceHttpService) { }
+    constructor() { }
 
     public dataAllPayroll: Payroll[];
     public $dataAllPayroll = new BehaviorSubject<Payroll[]>(null);
 
     public $numberBoardPayroll = new BehaviorSubject<number>(0);
 
-    public dataAllBoardPayroll: Duration;
+    public dataAllBoardPayroll: Duration[];
     public $dataAllBoardPayroll = new BehaviorSubject<Duration[]>(null);
 
+    public listAllBoardPayroll: Array<Payroll[]>;
     public $listAllBoardPayroll = new BehaviorSubject<Array<Payroll[]>>(null);
 
     public record: Payroll;
@@ -35,6 +36,7 @@ export class ServiceStorageService {
         this.$dataAllBoardPayroll.next(data);
     }
     public setlistAllBoardPayroll( data){
+        this.listAllBoardPayroll = data;
         this.$listAllBoardPayroll.next(data);
     }
 

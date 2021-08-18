@@ -38,11 +38,11 @@
                         <td class="staffWorDay">{{ record.workDay }}</td>
                         <td class="salary">{{ record.bonus | number: "0.0" }}</td>
                         <td class="salary">{{ record.salary | number: "0.0" }}</td>
-                        <td class="editRecord">
-                            <mat-icon (click)="buttonEdit(record)" title="Chỉnh sửa bản ghi">edit</mat-icon>
+                        <td class="editRecord" (click)="buttonEdit(record)">
+                            <mat-icon  title="Chỉnh sửa bản ghi">edit</mat-icon>
                         </td>
-                        <td class="deleteRecord">
-                            <mat-icon (click)= "buttonDelete(record)" title="Xóa bản ghi">delete</mat-icon>
+                        <td class="deleteRecord" (click)= "buttonDelete(record)">
+                            <mat-icon  title="Xóa bản ghi">delete</mat-icon>
                         </td>
                     </tr>
                     <tr>

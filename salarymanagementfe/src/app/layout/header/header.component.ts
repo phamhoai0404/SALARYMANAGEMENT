@@ -1,3 +1,4 @@
+import { ExportExcelComponent } from './../../content/board-payroll/export-excel/export-excel.component';
 import { AddDurationComponent } from './../../content/board-payroll/add-duration/add-duration.component';
 import { ServiceHttpService } from './../../share/service_http/service-http.service';
 import { ServiceStorageService } from './../../share/service_storage/service-storage.service';
@@ -47,7 +48,12 @@ export class HeaderComponent implements OnInit {
         )
     }
     buttonAddDuration(){
+        console.log("Kích vào add Bảng lương ");
         this.dialog.open(AddDurationComponent);
+    }
+    buttonExportExcel(){
+        console.log("kích vào đây export");
+        this.dialog.open(ExportExcelComponent);
     }
   
     buttonLogout(){

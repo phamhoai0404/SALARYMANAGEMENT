@@ -103,6 +103,12 @@ public class PayrollServiceImpl implements PayrollService {
         return  notStaff;
     }
 
+    @Override
+    public List<PayrollDTO> searchByDuration(Long idDuration) {
+        List<PayrollDTO> payrollDTOList = payrollRepository.findByDuration_Id(idDuration).stream().map(this:: toDTO).collect(Collectors.toList());
+        return payrollDTOList;
+    }
+
     /**
      *
      * @param iddd - id của nhân viên cần kiểm tra

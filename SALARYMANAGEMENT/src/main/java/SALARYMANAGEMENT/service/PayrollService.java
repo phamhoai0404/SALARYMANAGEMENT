@@ -17,5 +17,7 @@ public interface PayrollService {
 
     PayrollDTO deletePayroll(Long id) throws Exception;
 
-    public List<StaffDTO> searchStaffNotExistsDuration(Long idDuration);
+    List<StaffDTO> searchStaffNotExistsDuration(Long idDuration);
+
+    List<PayrollDTO> searchByDuration( Long idDuration);
 }

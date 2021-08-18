@@ -1,3 +1,4 @@
+import { Duration } from 'src/app/share/model/duration.model';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
@@ -56,14 +57,18 @@ export class ServiceHttpService {
             .pipe(catchError(this.handleError));
     }
     addDuration( data){
-        console.log('đường dẫn',this.URL_DURATION + '/add' );
-        console.log('data', data );
+        // console.log('đường dẫn',this.URL_DURATION + '/add' );
+        // console.log('data', data );
 
         return this.http
             .post<any>(this.URL_DURATION + '/add' , data, this.httpOptions)
             .pipe(catchError(this.handleError));
     }
 
+    getPayrollByDuration(duration: Duration){
+        return this.http
+            .get<any>(this.URL_PAYROLL + '/get/' + duration.id , this.httpOptions);
+    }
 
     private handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {

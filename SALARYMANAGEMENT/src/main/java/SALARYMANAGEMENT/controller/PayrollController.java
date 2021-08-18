@@ -64,5 +64,13 @@ public class PayrollController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+    @GetMapping("/get/{idDuration}")
+    public ResponseEntity<?> searchPayrollByDuration(@PathVariable Long idDuration){
+        try{
+            return ResponseEntity.ok(payrollService.searchByDuration(idDuration));
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 
 }
