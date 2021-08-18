@@ -1,7 +1,9 @@
+import { AddDurationComponent } from './../../content/board-payroll/add-duration/add-duration.component';
 import { ServiceHttpService } from './../../share/service_http/service-http.service';
 import { ServiceStorageService } from './../../share/service_storage/service-storage.service';
 import { ServiceActionService } from './../../share/service_action/service-action.service';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -15,7 +17,8 @@ export class HeaderComponent implements OnInit {
     constructor( 
         private serviceAction: ServiceActionService,
         private serviceStorage: ServiceStorageService,
-        private servicehttp: ServiceHttpService
+        private servicehttp: ServiceHttpService,
+        private dialog: MatDialog
         ) { }
 
     public number = 0;
@@ -43,8 +46,13 @@ export class HeaderComponent implements OnInit {
             }
         )
     }
+    buttonAddDuration(){
+        this.dialog.open(AddDurationComponent);
+    }
   
-    buttonLogout(){}
+    buttonLogout(){
+
+    }
 
 
     //Liên quan đến các hoạt động của trang web 

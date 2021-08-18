@@ -23,11 +23,11 @@ public class DurationServiceImpl implements DurationService {
     }
 
     @Override
-    public DurationDTO addDuration(Duration duration) throws Exception {
+    public DurationDTO addDuration(DurationDTO duration) throws Exception {
         if( duration.getId() != null){
             throw new Exception();
         }
-        return this.toDTO(durationRepository.save(duration));
+        return this.toDTO(durationRepository.save(this.toEntity(duration)));
     }
 
 

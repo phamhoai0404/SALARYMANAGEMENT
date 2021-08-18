@@ -39,4 +39,20 @@ export class UtilService {
         return false;
     } 
 
+    public static addDataYear( first: number, last: number){
+        let years = [];
+        for( let i = first; i <= last; i++){
+            years.push(i);
+        }
+        return years as number[];
+    }
+    public static addDataMonth(){
+        let months = [];
+        for( let i = 1; i <=12; i++){
+            months.push(i);
+        }
+        return months as number[];//viết kiểu như này cho hiện rõ thôi
+        //có thể viết mỗi như này cũng được
+        // return months;
+    }
 }

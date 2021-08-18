@@ -9,6 +9,6 @@ public interface DurationService {
 
     List<DurationDTO> getAllDuration();
 
-    DurationDTO addDuration(Duration duration) throws  Exception;
+    DurationDTO addDuration(DurationDTO duration) throws  Exception;
 
 }

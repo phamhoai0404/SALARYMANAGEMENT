@@ -19,6 +19,8 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 import { HeaderComponent } from './layout/header/header.component';
 import { SideNavComponent } from './layout/side-nav/side-nav.component';
 import { InformationComponent } from './content/information/information.component';
@@ -28,6 +30,12 @@ import { EditRecordComponent } from './content/board-payroll/edit-record/edit-re
 import { DeleteRecordComponent } from './content/board-payroll/delete-record/delete-record.component';
 import { AddRecordComponent } from './content/board-payroll/add-record/add-record.component';
 
+//Dùng cho Select Option ấy 
+import { MatSelectModule } from '@angular/material/select';
+import { AddDurationComponent } from './content/board-payroll/add-duration/add-duration.component'
+
+
+//
 
 @NgModule({
   declarations: [
@@ -42,7 +50,8 @@ import { AddRecordComponent } from './content/board-payroll/add-record/add-recor
     //Không hiểu tại sao nó lại không import tự động cái này cho mình cơ
     EditRecordComponent,
     DeleteRecordComponent,
-    AddRecordComponent
+    AddRecordComponent,
+    AddDurationComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +74,10 @@ import { AddRecordComponent } from './content/board-payroll/add-record/add-recor
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
+
+    //import để sử dụng select
+    MatSelectModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

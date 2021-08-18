@@ -1,13 +1,14 @@
 package SALARYMANAGEMENT.controller;
 
+import SALARYMANAGEMENT.domain.Duration;
+import SALARYMANAGEMENT.dto.DurationDTO;
 import SALARYMANAGEMENT.service.DurationService;
 import SALARYMANAGEMENT.service.impl.DurationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -18,9 +19,18 @@ public class DurationController {
     DurationService durationService;
 
     @GetMapping("/find")
-    public ResponseEntity<?> getAllPayroll() {
+    public ResponseEntity<?> getAllDuration() {
         try {
             return ResponseEntity.ok(durationService.getAllDuration());
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+    @PostMapping("/add")
+    public ResponseEntity<?> addDuration(@RequestBody @Valid DurationDTO dto){
+        try {
+            System.out.println("đã vào");
+            return ResponseEntity.ok(durationService.addDuration(dto));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
